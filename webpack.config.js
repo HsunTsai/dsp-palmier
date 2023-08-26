@@ -61,9 +61,9 @@ module.exports = param => {
 				new CleanWebpackPlugin(['dist/*'], { root: path.join(__dirname, '/') }),
 				new CopyWebpackPlugin({
 					patterns: [
-						{ from: 'src/images', to: 'images' },
-						{ from: 'src/data', to: 'data' },
-						{ from: 'public/locales', to: 'locales' },
+						{ from: 'src/assets/images', to: 'images' },
+						{ from: 'src/assets/data', to: 'data' },
+						{ from: 'src/assets/locales', to: 'locales' },
 						{ from: 'web.config', to: 'web.config' },
 					],
 				}),
@@ -74,7 +74,7 @@ module.exports = param => {
 		return merge(baseConfig(isProd), {
 			devServer: {
 				port: 9999,
-				static: './public',
+				static: './src/assets',
 				hot: true,
 				historyApiFallback: true,
 			},

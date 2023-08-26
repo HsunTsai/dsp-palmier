@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { NavLink, useRouteMatch, useHistory } from 'react-router-dom';
 import { Select } from 'antd';
 import { changeLang, checkLanguageSupport, supportLanguages } from '../../appAction';
-import ReactIcon from '../../../images/react_logo.png';
+import ReactIcon from '../../../assets/images/react_logo.png';
 
 import './header.scss';
 

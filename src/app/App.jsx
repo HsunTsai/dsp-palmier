@@ -1,7 +1,5 @@
 import React from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
-/* You can cache page when page cahnge by import CacheRoute & CacheSwitch */
-// import CacheRoute, { CacheSwitch } from 'react-router-cache-route';
 import Loadable from 'react-loadable';
 
 import Header from './components/header/Header';
@@ -29,16 +27,6 @@ const pages = [
 		path: '/redux-legacy',
 		name: 'LegacyReduxSample',
 		component: Loadable({ loader: () => import('./pages/reduxSample/LegacyReduxSample'), loading: RouterLoading }),
-	},
-	{
-		path: '/about',
-		name: 'About',
-		component: Loadable({ loader: () => import('./pages/about/About'), loading: RouterLoading }),
-	},
-	{
-		path: '/topic',
-		name: 'Topic',
-		component: Loadable({ loader: () => import('./pages/topic/Topic'), loading: RouterLoading }),
 	},
 ];
 

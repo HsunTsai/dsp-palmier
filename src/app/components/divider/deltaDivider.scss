@@ -1,0 +1,16 @@
+.deltaDivider {
+	display: flex;
+	&__primary {
+		flex: 3;
+		background: #0087dc;
+	}
+	&__second {
+		flex: 1;
+		background: #64d7d7;
+	}
+
+	&__third {
+		flex: 1;
+		background: #B9EB5F;
+	}
+}

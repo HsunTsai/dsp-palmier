@@ -11,37 +11,24 @@ import './app.scss';
 
 const pages = [
 	{
-		path: '/playground',
-		name: 'Playground',
-		component: Loadable({ loader: () => import('./pages/playground/Playground'), loading: RouterLoading }),
-	},
-	{
-		path: '/i18n',
-		name: 'I18N',
-		component: Loadable({ loader: () => import('./pages/i18n/I18N'), loading: RouterLoading }),
-	},
-	{
-		path: '/redux',
-		name: 'ReduxSample',
-		component: Loadable({ loader: () => import('./pages/reduxSample/ReduxSample'), loading: RouterLoading }),
-	},
-	{
-		path: '/redux-legacy',
-		name: 'LegacyReduxSample',
-		component: Loadable({ loader: () => import('./pages/reduxSample/LegacyReduxSample'), loading: RouterLoading }),
+		path: '/login',
+		name: 'Login',
+		component: Loadable({ loader: () => import('./pages/login/LoginPage'), loading: RouterLoading }),
 	},
 ];
 
 const App = () => (
-	<ConfigProvider theme={antdTheme()}>
+	<ConfigProvider theme={antdTheme()} dar>
 		<div className="app">
 			<Header pages={pages} />
-			<Switch>
-				{pages.map((page, index) => (
-					<Route key={index.toString()} exact path={`/:locale${page.path}`} component={page.component} />
-				))}
-				<Redirect to={pages[0].path} />
-			</Switch>
+			<div className="app__body">
+				<Switch>
+					{pages.map((page, index) => (
+						<Route key={index.toString()} exact path={`/:locale${page.path}`} component={page.component} />
+					))}
+					<Redirect to={pages[0].path} />
+				</Switch>
+			</div>
 		</div>
 	</ConfigProvider>
 );

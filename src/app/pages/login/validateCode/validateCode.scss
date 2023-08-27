@@ -1,0 +1,14 @@
+.validateCode {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin: auto;
+	margin-bottom: 16px;
+
+	&__canvas {
+		margin-left: 8px;
+	}
+
+	&__change {
+	}
+}

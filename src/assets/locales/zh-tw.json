@@ -1,4 +1,12 @@
 {
-  "hello": "哈囉 !",
-  "superHello": "哈囉 ! { someoneName } !"
+	"hello": "哈囉 !",
+	"superHello": "哈囉 ! { someoneName } !",
+
+	"common.login": "登入",
+
+	"login.welcome": "歡迎來到",
+	"login.username.hint": "請輸入帳號",
+	"login.password.hint": "請輸入密碼",
+	"login.verification.code.hint": "請輸入驗證碼",
+	"login.validate.change": "換一組"
 }

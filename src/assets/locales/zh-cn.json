@@ -1,4 +1,12 @@
 {
-  "hello": "哈啰 !",
-  "superHello": "哈啰 ! { someoneName } !"
+	"hello": "哈啰 !",
+	"superHello": "哈啰 ! { someoneName } !",
+
+	"common.login": "登入",
+
+	"login.welcome": "欢迎来到",
+	"login.username.hint": "请输入帐号",
+	"login.password.hint": "请输入密码",
+	"login.verification.code.hint": "请输入验证码",
+	"login.validate.change": "换一组"
 }

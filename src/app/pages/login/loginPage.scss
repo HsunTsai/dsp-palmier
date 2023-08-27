@@ -1,0 +1,26 @@
+.loginPage {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+
+	&__welcome {
+		display: flex;
+		font-size: 36px;
+		&--bold {
+			font-weight: bold;
+			margin-left: 12px;
+		}
+	}
+
+	&__form {
+		margin-top: 36px;
+		min-width: 240px;
+
+		&__btn {
+			width: 100%;
+			margin-top: 16px;
+		}
+	}
+}

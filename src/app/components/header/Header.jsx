@@ -1,51 +1,43 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { NavLink, useRouteMatch, useHistory } from 'react-router-dom';
+// import PropTypes from 'prop-types';
+import { useRouteMatch, useHistory } from 'react-router-dom';
 import { Select } from 'antd';
 import { changeLang, checkLanguageSupport, supportLanguages } from '../../appAction';
-import ReactIcon from '../../../assets/images/react_logo.png';
+import ReactIcon from '../../../assets/images/delta.png';
+import DeltaDivider from '../divider/DeltaDivider';
 
 import './header.scss';
 
 const { Option } = Select;
 
-const Header = ({ pages }) => {
+const Header = () => {
 	const history = useHistory();
 	const { locale } = useRouteMatch()?.params;
 
 	return (
 		<div className="header">
-			<img alt="" className="header-icon" src={ReactIcon} />
-			{pages.map(page => (
-				<NavLink
-					key={page.path}
-					to={`/${locale}${page.path}`}
-					className="header-item"
-					activeClassName="header-item--active"
-				>
-					{page.name}
-				</NavLink>
-			))}
-			<div className="header-select">
-				<Select
-					value={checkLanguageSupport(locale)}
-					onChange={nextLanguage => changeLang({ history, currentLanguage: locale, nextLanguage })}
-				>
-					{supportLanguages.map(({ label, value }) => (
-						<Option key={value} value={value}>
-							{label}
-						</Option>
-					))}
-				</Select>
+			<div className="header__body">
+				<img alt="" className="header__body__logo" src={ReactIcon} />
+				<div className="header-select">
+					<Select
+						value={checkLanguageSupport(locale)}
+						onChange={nextLanguage => changeLang({ history, currentLanguage: locale, nextLanguage })}
+					>
+						{supportLanguages.map(({ label, value }) => (
+							<Option key={value} value={value}>
+								{label}
+							</Option>
+						))}
+					</Select>
+				</div>
 			</div>
+			<DeltaDivider />
 		</div>
 	);
 };
 
 Header.defaultProps = {};
 
-Header.propTypes = {
-	pages: PropTypes.arrayOf(PropTypes.any).isRequired,
-};
+Header.propTypes = {};
 
 export default Header;

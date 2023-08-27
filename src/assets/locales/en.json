@@ -1,4 +1,12 @@
 {
-  "hello": "Hello !",
-  "superHello": "Hello ! { someoneName } !"
+	"hello": "Hello !",
+	"superHello": "Hello ! { someoneName } !",
+
+	"common.login": "Login",
+
+	"login.welcome": "Welcome to",
+	"login.username.hint": "Please enter your account",
+	"login.password.hint": "Please enter your password",
+	"login.verification.code.hint": "Please enter verification code",
+	"login.validate.change": "Change"
 }

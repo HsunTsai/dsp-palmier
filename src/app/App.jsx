@@ -19,7 +19,7 @@ const pages = [
 	{
 		path: '/home',
 		name: 'Home',
-		component: Loadable({ loader: () => import('./pages/home/Home'), loading: RouterLoading }),
+		component: Loadable({ loader: () => import('./pages/Home'), loading: RouterLoading }),
 	},
 ];
 
@@ -28,7 +28,7 @@ const App = () => {
 	const history = useHistory();
 
 	useEffect(() => {
-		if (user) history.push('/home');
+		if (!user) history.push('/home');
 		else history.push('/login');
 	}, [user]);
 

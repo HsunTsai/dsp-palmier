@@ -5,7 +5,7 @@ const package = require('./package.json');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin')
+const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 
 // 基本config (正式及開發環境共用config)
 const baseConfig = isProd => {
@@ -22,7 +22,7 @@ const baseConfig = isProd => {
 			}),
 			new webpack.DefinePlugin({
 				'process.env': {
-					VERSION: JSON.stringify(package.version + package.build),
+					VERSION: JSON.stringify(package.version),
 					CONTEXT_ROOT: JSON.stringify(contextRoot),
 					DOMAIN: JSON.stringify(domain),
 				},
@@ -78,9 +78,7 @@ module.exports = param => {
 				hot: true,
 				historyApiFallback: true,
 			},
-			plugins: [
-				new ReactRefreshWebpackPlugin(),
-			],
+			plugins: [new ReactRefreshWebpackPlugin()],
 		});
 	}
 };

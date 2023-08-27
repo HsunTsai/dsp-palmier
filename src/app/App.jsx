@@ -1,7 +1,9 @@
 import React from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import Loadable from 'react-loadable';
+import { ConfigProvider } from 'antd';
 
+import antdTheme from './antdTheme';
 import Header from './components/header/Header';
 import RouterLoading from './components/loading/Loading';
 
@@ -31,15 +33,17 @@ const pages = [
 ];
 
 const App = () => (
-	<div className="app">
-		<Header pages={pages} />
-		<Switch>
-			{pages.map((page, index) => (
-				<Route key={index.toString()} exact path={`/:locale${page.path}`} component={page.component} />
-			))}
-			<Redirect to={pages[0].path} />
-		</Switch>
-	</div>
+	<ConfigProvider theme={antdTheme()}>
+		<div className="app">
+			<Header pages={pages} />
+			<Switch>
+				{pages.map((page, index) => (
+					<Route key={index.toString()} exact path={`/:locale${page.path}`} component={page.component} />
+				))}
+				<Redirect to={pages[0].path} />
+			</Switch>
+		</div>
+	</ConfigProvider>
 );
 
 export default App;

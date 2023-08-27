@@ -5,22 +5,11 @@ import { getIntl } from '../../IntlGlobalProvider';
 import './playground.scss';
 
 const Playground = () => {
-	const { formatMessage, getLocale } = getIntl();
+	const { formatMessage } = getIntl();
 	const [count, setCount] = useState(0);
 	const [visibile, setVisibile] = useState(false);
 
-	const closeModal = () => {
-		setVisibile(false);
-	};
-
-	const plus = () => {
-		setCount(count + 1);
-		console.info('測試getLocale', getLocale());
-	};
-
-	const minus = () => {
-		setCount(count - 1);
-	};
+	const closeModal = () => setVisibile(false);
 
 	return (
 		<div className="playground">
@@ -29,10 +18,10 @@ const Playground = () => {
 			<h2>想玩什麼自己玩</h2>
 			<div className="playground__count">{`數字 ${count}`}</div>
 			<div className="playground__action">
-				<Button className="playground__action__btn" type="primary" onClick={plus}>
+				<Button className="playground__action__btn" type="primary" onClick={() => setCount(count + 1)}>
 					+1
 				</Button>
-				<Button className="playground__action__btn" type="danger" onClick={minus}>
+				<Button className="playground__action__btn" onClick={() => setCount(count - 1)}>
 					-1
 				</Button>
 			</div>

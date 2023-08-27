@@ -4,3 +4,25 @@ body {
 	color: white;
 	font-family: Microsoft JhengHei;
 }
+
+::-webkit-scrollbar {
+	width: 7px;
+	&-button {
+		display: none;
+		background: transparent;
+		border-radius: 4px;
+	}
+
+	&-track {
+		box-shadow: transparent;
+		&-piece {
+			background: transparent;
+		}
+	}
+
+	&-thumb {
+		border-radius: 4px;
+		background-color: rgba(0, 0, 0, 0.4);
+		border: 1px solid slategrey;
+	}
+}

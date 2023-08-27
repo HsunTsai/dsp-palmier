@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useIntl } from 'react-intl';
 import PropTypes from 'prop-types';
-import { LockOutlined, ReloadOutlined } from '@ant-design/icons';
+import { ReloadOutlined } from '@ant-design/icons';
 import { Button, Input } from 'antd';
 
 import './validateCode.scss';
@@ -60,7 +60,6 @@ const ValidateCode = ({ onChange }) => {
 			</div>
 			<Input
 				placeholder={formatMessage({ id: 'login.verification.code.hint' })}
-				prefix={<LockOutlined />}
 				onChange={e => setCurrentValue(e.target.value)}
 			/>
 		</div>

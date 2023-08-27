@@ -1,14 +1,16 @@
 .validateCode {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	margin: auto;
-	margin-bottom: 16px;
+	&__code {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		&__canvas {
+			margin-left: 8px;
+		}
 
-	&__canvas {
-		margin-left: 8px;
-	}
+		&__change {
+			color: #949fac;
+		}
 
-	&__change {
+		margin-bottom: 16px;
 	}
 }

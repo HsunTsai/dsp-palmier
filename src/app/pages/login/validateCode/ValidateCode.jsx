@@ -1,14 +1,16 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useIntl } from 'react-intl';
-import { ReloadOutlined } from '@ant-design/icons';
-import { Button } from 'antd';
+import PropTypes from 'prop-types';
+import { LockOutlined, ReloadOutlined } from '@ant-design/icons';
+import { Button, Input } from 'antd';
 
 import './validateCode.scss';
 
-const ValidateCode = () => {
+const ValidateCode = ({ onChange }) => {
 	const { formatMessage } = useIntl();
-	const [captcha, setCaptcha] = useState();
 	const canvasRef = useRef();
+	const [captcha, setCaptcha] = useState();
+	const [currentValue, setCurrentValue] = useState();
 
 	// 生成隨機驗證碼
 	const generateCaptcha = () => {
@@ -22,9 +24,7 @@ const ValidateCode = () => {
 	};
 
 	// 在元件首次渲染時生成驗證碼
-	useEffect(() => {
-		generateCaptcha();
-	}, []);
+	useEffect(() => generateCaptcha(), []);
 
 	// 當驗證碼改變時繪製新的驗證碼圖片
 	useEffect(() => {
@@ -40,16 +40,39 @@ const ValidateCode = () => {
 		ctx.fillText(captcha, 10, 30);
 	}, [captcha]);
 
+	// 驗證驗證碼是否正確 錯誤就回傳 undefined
+	useEffect(() => {
+		if (undefined !== currentValue) onChange(captcha === currentValue);
+	}, [captcha, currentValue, onChange]);
+
 	return (
 		<div className="validateCode">
-			<canvas ref={canvasRef} width={120} height={40} className="validateCode__canvas" />
-			<Button type="text" className="validateCode__change" onClick={generateCaptcha} icon={<ReloadOutlined />}>
-				{formatMessage({ id: 'login.validate.change' })}
-			</Button>
+			<div className="validateCode__code">
+				<canvas ref={canvasRef} width={120} height={40} className="validateCode__code__canvas" />
+				<Button
+					type="text"
+					className="validateCode__code__change"
+					onClick={generateCaptcha}
+					icon={<ReloadOutlined />}
+				>
+					{formatMessage({ id: 'login.validate.change' })}
+				</Button>
+			</div>
+			<Input
+				placeholder={formatMessage({ id: 'login.verification.code.hint' })}
+				prefix={<LockOutlined />}
+				onChange={e => setCurrentValue(e.target.value)}
+			/>
 		</div>
 	);
 };
 
-ValidateCode.propTypes = {};
+ValidateCode.defaultProps = {
+	onChange: () => undefined,
+};
+
+ValidateCode.propTypes = {
+	onChange: PropTypes.func,
+};
 
 export default ValidateCode;

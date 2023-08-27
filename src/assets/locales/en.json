@@ -8,5 +8,6 @@
 	"login.username.hint": "Please enter your account",
 	"login.password.hint": "Please enter your password",
 	"login.verification.code.hint": "Please enter verification code",
+	"login.verification.code.error": "Please enter the correct verification code",
 	"login.validate.change": "Change"
 }

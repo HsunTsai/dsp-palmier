@@ -8,5 +8,6 @@
 	"login.username.hint": "請輸入帳號",
 	"login.password.hint": "請輸入密碼",
 	"login.verification.code.hint": "請輸入驗證碼",
+	"login.verification.code.error": "請輸入正確的驗證碼",
 	"login.validate.change": "換一組"
 }

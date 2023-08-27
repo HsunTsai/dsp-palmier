@@ -8,5 +8,6 @@
 	"login.username.hint": "请输入帐号",
 	"login.password.hint": "请输入密码",
 	"login.verification.code.hint": "请输入验证码",
+	"login.verification.code.error": "请输入正确的验证码",
 	"login.validate.change": "换一组"
 }

@@ -7,8 +7,24 @@
 		padding: 4px 16px;
 		height: 48px;
 
-		&__logo {
-			height: 28px;
+		&__title {
+			display: flex;
+			align-items: center;
+
+			&__logo {
+				height: 28px;
+			}
+
+			&__divider {
+				width: 1px;
+				height: 24px;
+				background: #243F61;
+				margin: 0 16px;
+			}
+
+			&__name {
+				color: #0087dc;
+			}
 		}
 	}
 }

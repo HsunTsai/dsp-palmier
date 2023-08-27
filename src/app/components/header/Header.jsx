@@ -17,8 +17,12 @@ const Header = () => {
 	return (
 		<div className="header">
 			<div className="header__body">
-				<img alt="" className="header__body__logo" src={ReactIcon} />
-				<div className="header-select">
+				<div className="header__body__title">
+					<img alt="" className="header__body__title__logo" src={ReactIcon} />
+					<div className="header__body__title__divider" />
+					<div className="header__body__title__name">Delta Energy Online</div>
+				</div>
+				<div className="header__body__lang">
 					<Select
 						value={checkLanguageSupport(locale)}
 						onChange={nextLanguage => changeLang({ history, currentLanguage: locale, nextLanguage })}

@@ -1,23 +1,13 @@
 /* eslint-disable no-nested-ternary */
 import { notification } from 'antd';
 
-export const openNotificationWithIcon = (type, message, description, duration = 4) => {
-	notification.config({
-		placement: 'bottomLeft',
-		duration,
-	});
-	notification[type]({
-		message,
-		description,
-	});
+export const openNotification = (type, message, description, duration = 4) => {
+	notification.config({ placement: 'bottomLeft', duration });
+	notification[type]({ message, description });
 };
 
-// eslint-disable-next-line no-nested-ternary
 export const openNotificationError = (type, message, error) => {
-	notification.config({
-		placement: 'bottomLeft',
-		duration: 4,
-	});
+	notification.config({ placement: 'bottomLeft', duration: 4 });
 
 	const { statusText } = error.response;
 

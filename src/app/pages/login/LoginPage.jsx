@@ -1,8 +1,9 @@
 import React, { useCallback, useMemo } from 'react';
 import { useIntl } from 'react-intl';
-import { Button, Form, Input, notification, Spin } from 'antd';
+import { Button, Form, Input, Spin } from 'antd';
 // import PropTypes from 'prop-types';
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
+import { openNotification } from '../../utils/notification';
 import ValidateCode from './validateCode/ValidateCode';
 import useApi from './useApi';
 
@@ -17,7 +18,7 @@ const LoginPage = () => {
 	const onSubmit = useCallback(() => {
 		form.validateFields()
 			.then(data => handleLogin(data))
-			.catch(() => notification.error({ message: '資料有誤', description: '請檢察欄位' }));
+			.catch(() => openNotification('error', '資料有誤', '請檢察欄位'));
 	}, []);
 
 	const formSchema = useMemo(
@@ -32,7 +33,7 @@ const LoginPage = () => {
 				name: 'password',
 				placeholder: formatMessage({ id: 'login.password.hint' }),
 				required: true,
-				render: props => <Input prefix={<LockOutlined />} {...props} />,
+				render: props => <Input prefix={<LockOutlined />} {...props} type="password" />,
 			},
 			{
 				name: 'verification',
@@ -61,6 +62,7 @@ const LoginPage = () => {
 			<Form
 				className="loginPage__form"
 				form={form}
+				initialValues={{ username: 'admin', password: 'admin' }}
 				onKeyDown={e => {
 					if (e?.key === 'Enter') onSubmit();
 				}}

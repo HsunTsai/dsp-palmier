@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { Route, Switch, useHistory } from 'react-router-dom';
+import React from 'react';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import Loadable from 'react-loadable';
 import { ConfigProvider } from 'antd';
 import { useSelector } from 'react-redux';
@@ -25,12 +25,15 @@ const pages = [
 
 const App = () => {
 	const { user } = useSelector(state => state?.app);
-	const history = useHistory();
+	console.info('user', user);
+	// const history = useHistory();
 
-	useEffect(() => {
-		if (!user) history.push('/home');
-		else history.push('/login');
-	}, [user]);
+	// useEffect(() => {
+	// 	if (!user) history.push('/home');
+	// 	else history.push('/login');
+	// }, [user]);
+
+	// console.info('user', user);
 
 	return (
 		<ConfigProvider theme={antdTheme()} dar>
@@ -46,6 +49,7 @@ const App = () => {
 								component={page.component}
 							/>
 						))}
+						<Redirect to={pages[0].path} />
 					</Switch>
 				</div>
 			</div>
